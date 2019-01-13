@@ -33,12 +33,12 @@ hadolint:
 ##
 ## Build
 ##
-build:
-  stage: "Build"
-  script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
-    - docker push "$CI_REGISTRY_IMAGE"
+# build:
+#   stage: "Build"
+#   script:
+#     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+#     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+#     - docker push "$CI_REGISTRY_IMAGE"
 
 ##
 ## Test
@@ -80,13 +80,13 @@ build:
 #     - docker push "docker.io/$HUB_NAMESPACE/$HUB_PROJECT:alpha"
 #   only:
 #     - master
-quay.io:
-  stage: "Deploy"
-  script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker pull "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-    - docker tag "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" "quay.io/$HUB_NAMESPACE/$HUB_PROJECT:alpha"
-    - docker login -u "$HUB_REGISTRY_USER" -p "$HUB_REGISTRY_PASSWORD" quay.io
-    - docker push "quay.io/$HUB_NAMESPACE/$HUB_PROJECT:alpha"
-  only:
-    - master
+# quay.io:
+#   stage: "Deploy"
+#   script:
+#     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+#     - docker pull "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+#     - docker tag "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" "quay.io/$HUB_NAMESPACE/$HUB_PROJECT:alpha"
+#     - docker login -u "$HUB_REGISTRY_USER" -p "$HUB_REGISTRY_PASSWORD" quay.io
+#     - docker push "quay.io/$HUB_NAMESPACE/$HUB_PROJECT:alpha"
+#   only:
+#     - master

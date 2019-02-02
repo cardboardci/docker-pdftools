@@ -72,11 +72,12 @@ docker.hub:
     - source deploy/hub.docker.config
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker pull "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-    - docker tag "docker.io/$HUB_NAMESPACE/$HUB_PROJECT:edge"
+    - docker tag "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" "docker.io/${HUB_NAMESPACE}/${HUB_PROJECT}:edge"
     - docker login -u "$HUB_REGISTRY_USER" -p "$HUB_REGISTRY_PASSWORD"
-    - docker push "docker.io/$HUB_NAMESPACE/$HUB_PROJECT:edge"
+    - docker push "docker.io/${HUB_NAMESPACE}/${HUB_PROJECT}:edge"
   only:
     - master
+    
 # quay.io:
 #   stage: "Deploy"
 #   script:

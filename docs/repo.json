@@ -1,0 +1,8 @@
+{
+  "name": "docker-pdftools",
+  "tagline": "Command lines tools for manipulating pdfs.",
+  "license": {
+    "name": "MIT"
+  },
+  "tags": ["docker", "pdf", "pdfunite"]
+}

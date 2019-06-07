@@ -1,0 +1,10 @@
+---
+name: Docker PDFTools
+slug: docker-pdftools
+project: cardboardci
+namespace: []
+description: Command lines tools for manipulating pdfs.
+license:
+  name: MIT
+tags:
+  - docker

@@ -1,0 +1,8 @@
+---
+name: github
+provider: github.com
+repository: docker-pdftools
+url: https://github.com/cardboardci/docker-pdftools
+clone:
+  ssh: git@github.com:cardboardci/docker-pdftools.git
+  https: https://github.com/cardboardci/docker-pdftools.git

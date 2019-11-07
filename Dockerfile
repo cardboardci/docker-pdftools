@@ -1,5 +1,13 @@
-FROM alpine:3.10.3
-RUN apk add --no-cache poppler-utils=0.56.0-r1
+FROM cardboardci/ci-core:disco
+USER root
+
+COPY provision/pkglist /cardboardci/pkglist
+RUN apt-get update \
+    && xargs -a /cardboardci/pkglist apt-get install --no-install-recommends -y \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+USER cardboardci
 
 ##
 ## Image Metadata

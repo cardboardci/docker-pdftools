@@ -1,5 +1,7 @@
-FROM cardboardci/ci-core:disco
+FROM cardboardci/ci-core:focal
 USER root
+
+ARG DEBIAN_FRONTEND=noninteractive
 
 COPY provision/pkglist /cardboardci/pkglist
 RUN apt-get update \

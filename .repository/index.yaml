@@ -1,0 +1,17 @@
+slug: docker-pdftools
+description: Command lines tools for manipulating pdfs.
+project: cardboardci
+namespace: docker
+status: archived
+icon: icon.svg
+license:
+  type: MIT
+  content: Jonathan Beverly <jrbeverly>
+  year: 2019
+topics: |-
+  [
+    "dockerfile",
+    "pdf",
+    "pdfunite",
+    "pdf-document-processor"
+  ]
